@@ -49,3 +49,80 @@ function combinations()
 function combinations_with_replacement()
 {
 }
+
+/**
+ *
+ */
+function compress()
+{
+}
+
+/**
+ *
+ */
+function dropwhile()
+{
+}
+
+/**
+ *
+ */
+function filterfalse()
+{
+}
+
+/**
+ *
+ */
+function groupby()
+{
+}
+
+/**
+ *
+ */
+function islice()
+{
+}
+
+/**
+ *
+ */
+function permutations()
+{
+}
+
+/**
+ *
+ */
+function product()
+{
+}
+
+/**
+ *
+ */
+function starmap()
+{
+}
+
+/**
+ *
+ */
+function takewhile()
+{
+}
+
+/**
+ *
+ */
+function tee()
+{
+}
+
+/**
+ *
+ */
+function zip_longest()
+{
+}
