@@ -1,0 +1,30 @@
+{
+    "name": "churakovmike/php-itertools",
+    "type": "library",
+    "description": "PHP itertools library",
+    "keywords": [
+        "itertools",
+        "php itertools"
+    ],
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Churakov Mike",
+            "email": "churakovmike@mail.ru",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "churakovmike@mail.ru"
+    },
+    "require": {
+        "php": "^7.0"
+    },
+    "autoload": {
+        "files": ["src/function.php"]
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
