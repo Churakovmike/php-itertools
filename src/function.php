@@ -2,9 +2,14 @@
 
 /**
  * Бесконечная арифметическая прогрессия с первым членом start и шагом step.
+ * @param int $start
+ * @param int $step
  */
-function icount()
+function icount($start = 0, $step = 1)
 {
+    for ($i = $start; $start > 0; $i += $step) {
+        yield $i;
+    }
 }
 
 /**
