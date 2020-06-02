@@ -3,7 +3,7 @@
 /**
  * Бесконечная арифметическая прогрессия с первым членом start и шагом step.
  */
-function count()
+function icount()
 {
 }
 
