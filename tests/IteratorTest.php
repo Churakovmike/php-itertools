@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 class IteratorTest extends TestCase
 {
     /**
-     * test_is_function_exists
+     * Test package functions is exists.
      */
     public function testIsFunctionExists()
     {
@@ -29,5 +29,27 @@ class IteratorTest extends TestCase
         $this->assertTrue(function_exists('takewhile'));
         $this->assertTrue(function_exists('tee'));
         $this->assertTrue(function_exists('zip_longest'));
+    }
+
+    public function testIcountFunction()
+    {
+        $generator = icount(1, 1);
+        $this->assertEquals(\Generator::class, get_class($generator));
+        $this->assertEquals(1, $generator->current());
+        $generator->next();
+        $this->assertEquals(2, $generator->current());
+        $generator->next();
+        $this->assertEquals(3, $generator->current());
+    }
+
+    public function testIsValidException()
+    {
+        try {
+            $generator = icount(1, 1);
+            $generator->next();
+            $generator->rewind();
+        } catch (\Exception $exception) {
+            $this->assertEquals(\Exception::class, get_class($exception));
+        }
     }
 }
