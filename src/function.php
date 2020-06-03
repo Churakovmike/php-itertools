@@ -15,10 +15,12 @@ function icount($start = 0, $step = 1)
 /**
  * Возвращает по одному значению из последовательности, повторенной бесконечное число раз.
  */
-function cycle()
+function cycle($iterable)
 {
+    foreach ($iterable as $item) {
+        yield $item;
+    }
 }
-
 
 /**
  * Повторение елемента n - раз
@@ -36,9 +38,16 @@ function accumulate()
 
 /**
  * Поэлементное возращение значений входящих итераторов
+ * @param mixed ...$iterators
+ * @return Generator
  */
-function chain()
+function chain(...$iterators)
 {
+    foreach ($iterators as $iterator) {
+        foreach ($iterator as $value) {
+            yield from $value;
+        }
+    }
 }
 
 /**
