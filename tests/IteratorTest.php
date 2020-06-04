@@ -2,6 +2,8 @@
 
 namespace Tests;
 
+use Generator;
+use Exception;
 use PHPUnit\Framework\TestCase;
 
 class IteratorTest extends TestCase
@@ -34,7 +36,7 @@ class IteratorTest extends TestCase
     public function testIcountFunction()
     {
         $generator = icount(1, 1);
-        $this->assertEquals(\Generator::class, get_class($generator));
+        $this->assertEquals(Generator::class, get_class($generator));
         $this->assertEquals(1, $generator->current());
         $generator->next();
         $this->assertEquals(2, $generator->current());
@@ -49,16 +51,38 @@ class IteratorTest extends TestCase
             $generator->next();
             $generator->rewind();
         } catch (\Exception $exception) {
-            $this->assertEquals(\Exception::class, get_class($exception));
+            $this->assertEquals(Exception::class, get_class($exception));
         }
     }
 
     public function testRepeatFunction()
     {
         $generator = repeat(4, 10);
-        $this->assertInstanceOf(\Generator::class, $generator);
+        $this->assertInstanceOf(Generator::class, $generator);
         $this->assertEquals(4, $generator->current());
         $generator->next();
         $this->assertEquals(4, $generator->current());
+    }
+
+    public function testChainFunction()
+    {
+        $generator = chain([
+            [1,2,3],
+            [4,5,6],
+        ]);
+        $this->assertInstanceOf(Generator::class, $generator);
+        $this->assertEquals(1, $generator->current());
+        $generator->next();
+        $this->assertEquals(2, $generator->current());
+        $generator->next();
+        $this->assertEquals(3, $generator->current());
+        $generator->next();
+        $this->assertEquals(4, $generator->current());
+        $generator->next();
+        $this->assertEquals(5, $generator->current());
+        $generator->next();
+        $this->assertEquals(6, $generator->current());
+        $generator->next();
+        $this->assertFalse($generator->valid());
     }
 }
