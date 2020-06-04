@@ -50,9 +50,15 @@ class IteratorTest extends TestCase
             $generator = icount(1, 1);
             $generator->next();
             $generator->rewind();
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             $this->assertEquals(Exception::class, get_class($exception));
         }
+    }
+
+    public function testCycleFunction()
+    {
+        $generator = cycle([1,2,3]);
+        $this->assertInstanceOf(Generator::class, $generator);
     }
 
     public function testRepeatFunction()
@@ -62,6 +68,11 @@ class IteratorTest extends TestCase
         $this->assertEquals(4, $generator->current());
         $generator->next();
         $this->assertEquals(4, $generator->current());
+    }
+
+    public function testAccumulateFunction()
+    {
+        $this->assertNull(accumulate());
     }
 
     public function testChainFunction()
@@ -84,5 +95,70 @@ class IteratorTest extends TestCase
         $this->assertEquals(6, $generator->current());
         $generator->next();
         $this->assertFalse($generator->valid());
+    }
+
+    public function testCombinationsFunction()
+    {
+        $this->assertNull(combinations());
+    }
+
+    public function testCombinationsWithReplacement()
+    {
+        $this->assertNull(combinations_with_replacement());
+    }
+
+    public function testComporessFunction()
+    {
+        $this->assertNull(compress());
+    }
+
+    public function testDropwhileFunction()
+    {
+        $this->assertNull(dropwhile());
+    }
+
+    public function testFilterfalseFunction()
+    {
+        $this->assertNull(filterfalse());
+    }
+
+    public function testGroupbyFunction()
+    {
+        $this->assertNull(groupby());
+    }
+
+    public function testIsliceFunction()
+    {
+        $this->assertNull(islice());
+    }
+
+    public function testPermutationsFunction()
+    {
+        $this->assertNull(permutations());
+    }
+
+    public function testProductFunction()
+    {
+        $this->assertNull(product());
+    }
+
+    public function testStarmapFunction()
+    {
+        $this->assertNull(starmap());
+    }
+
+    public function testTakewhileFunction()
+    {
+        $this->assertNull(takewhile());
+    }
+
+    public function testTeeFunction()
+    {
+        $this->assertNull(tee());
+    }
+
+    public function testZipLongestFunction()
+    {
+        $this->assertNull(zip_longest());
     }
 }
