@@ -52,4 +52,13 @@ class IteratorTest extends TestCase
             $this->assertEquals(\Exception::class, get_class($exception));
         }
     }
+
+    public function testRepeatFunction()
+    {
+        $generator = repeat(4, 10);
+        $this->assertInstanceOf(\Generator::class, $generator);
+        $this->assertEquals(4, $generator->current());
+        $generator->next();
+        $this->assertEquals(4, $generator->current());
+    }
 }
