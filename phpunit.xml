@@ -22,4 +22,7 @@
     <php>
         <env name="APP_KEY" value="base64:bBKvbk+0J46Xf3e1cj0YqnVBOj+UZj7Sx/4sn0PSkUc="/>
     </php>
+    <logging>
+        <log type="coverage-clover" target="clover.xml"/>
+    </logging>
 </phpunit>
